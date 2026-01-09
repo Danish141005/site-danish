@@ -1,10 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Biodata — Muhammad Danish Wafri</title>
+
+    <!-- Elegant fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         :root{
             --bg:#868a8b;
@@ -25,30 +28,14 @@
         *{box-sizing:border-box}
         html,body{height:100%;margin:0;background:var(--bg);font-family:var(--sans);color:var(--muted);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 
-        /* BACKGROUND ELEMENT - EASIER TO CHANGE */
-        .background-image {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
-        .background-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.9);
-        }
-
         body{
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.096), rgba(255,255,255,0.6));
+            background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.096), rgba(255,255,255,0.6)), url("background 7.jpg");
+            background-size:cover;
+            background-position:center;
             display:flex;
             align-items:flex-start;
             justify-content:center;
             padding:40px 20px;
-            position: relative;
         }
 
         .wrap{
@@ -60,8 +47,6 @@
             box-shadow:var(--shadow);
             border:1px solid rgba(0,0,0,0.04);
             backdrop-filter: blur(6px);
-            position: relative;
-            z-index: 1;
         }
 
         header{
@@ -165,11 +150,6 @@
     </style>
 </head>
 <body>
-    <!-- BACKGROUND IMAGE - EASY TO CHANGE HERE -->
-    <div class="background-image">
-        <img src="gamba/background 7.jpg" alt="Background">
-    </div>
-    
     <div class="wrap" role="main">
         <header>
             <div class="avatar" aria-hidden="true">
@@ -184,9 +164,9 @@
         <div class="separator" role="separator" aria-hidden="true"></div>
 
         <div class="gallery" role="group" aria-label="photos">
-            <figure><img src="gamba/gamba groupmate - Copy.jpg" alt="Groupmate"></figure>
-            <figure><img src="gamba/gamba family copy.jpg" alt="Family"></figure>
-            <figure><img src="gamba/gamba brassband copy.jpg" alt="Brassband"></figure>
+            <figure><a href="groupmate.html" class="chip" style="text-decoration:none;cursor:pointer;display:inline-block;transition:all .2s ease;border:1px solid var(--accent);background:linear-gradient(90deg, rgba(139,75,54,0.25), rgba(202,168,157,0.25));color:#1a2a32;" onmouseover="this.style.background='linear-gradient(90deg, rgba(139,75,54,0.4), rgba(202,168,157,0.4))';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='linear-gradient(90deg, rgba(139,75,54,0.25), rgba(202,168,157,0.25))';this.style.transform='translateY(0)'"></a><img src="gamba/gamba groupmate - Copy.jpg" alt="Groupmate"></figure>
+            <figure><a href="family.html" class="chip" style="text-decoration:none;cursor:pointer;display:inline-block;transition:all .2s ease;border:1px solid var(--accent);background:linear-gradient(90deg, rgba(139,75,54,0.25), rgba(202,168,157,0.25));color:#1a2a32;" onmouseover="this.style.background='linear-gradient(90deg, rgba(139,75,54,0.4), rgba(202,168,157,0.4))';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='linear-gradient(90deg, rgba(139,75,54,0.25), rgba(202,168,157,0.25))';this.style.transform='translateY(0)'"></a><img src="gamba/gamba family copy.jpg" alt="Family"></figure>
+            <figure><a href="brassband.html" class="chip" style="text-decoration:none;cursor:pointer;display:inline-block;transition:all .2s ease;border:1px solid var(--accent);background:linear-gradient(90deg, rgba(139,75,54,0.25), rgba(202,168,157,0.25));color:#1a2a32;" onmouseover="this.style.background='linear-gradient(90deg, rgba(139,75,54,0.4), rgba(202,168,157,0.4))';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='linear-gradient(90deg, rgba(139,75,54,0.25), rgba(202,168,157,0.25))';this.style.transform='translateY(0)'"></a><img src="gamba/gamba brassband copy.jpg" alt="Brassband"></figure>
         </div>
 
         <div class="separator" role="separator" aria-hidden="true"></div>
@@ -247,16 +227,5 @@
             © Muhammad Danish Wafri — Designed for clarity and readability
         </footer>
     </div>
-
-    <script>
-        // Background image fallback
-        document.addEventListener('DOMContentLoaded', function() {
-            const bgImg = document.querySelector('.background-image img');
-            bgImg.onerror = function() {
-                console.log('Background image not found, using fallback');
-                this.src = 'background 7.jpg'; // Try same folder
-            };
-        });
-    </script>
 </body>
 </html>
