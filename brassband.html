@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Brassband | Journey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(Gamba/blue\ collage.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 28, 46, 0.7);
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(100, 150, 200, 0.2);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #6ba8e8;
+            margin-bottom: 10px;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #a8c6f0;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+        
+        .content {
+            display: flex;
+            gap: 30px;
+            margin: 30px 0;
+            align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+        }
+        
+        .photo-box {
+            flex: 1;
+        }
+        
+        .photo {
+            width: 100%;
+            border-radius: 10px;
+            border: 3px solid #3a5a8a;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+        .text-box {
+            flex: 1;
+            padding: 20px;
+            background: rgba(30, 50, 80, 0.4);
+            border-radius: 10px;
+            border-left: 4px solid #6ba8e8;
+        }
+        
+        h2 {
+            color: #a8c6f0;
+            margin-bottom: 15px;
+        }
+        
+        .members {
+            background: rgba(40, 60, 100, 0.4);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 1px solid #3a5a8a;
+            backdrop-filter: blur(5px);
+        }
+        
+        .members h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .member-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .member {
+            background: rgba(60, 90, 140, 0.6);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #4a7ab8;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        
+        .member:hover {
+            background: rgba(80, 120, 180, 0.8);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(100, 150, 200, 0.3);
+            color: #a8c6f0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MY BRASSBAND</h1>
+        <p class="subtitle">semester 1-semester 5</p>
+        
+        <div class="content">
+            <div class="photo-box">
+                <img src="Gamba/brassband.jpeg" alt="My Bandmate" class="photo">
+            </div>
+            
+            <div class="text-box">
+                <h2>My Bandmate</h2>
+                <p>It started as shared exhaustion on the practice field you with your colour guard flag, me with my brass instrument. For five semesters, our friendship was built in the margins: passing a water bottle under the summer sun, sharing a quiet laugh on the midnight bus after a competition, and speaking the same language of counts and crescendos.</p>
+                <p>That bond was forged in the discipline of the drill. Your perfect toss and my clean high note were our silent victories. From the awkward first formations in Semester 1 to the final, powerful performance in Semester 5, we weren't just from different sections; we were allies who created something beautiful, step by step, together.
+
+
+</p>
+            </div>
+        </div>
+        
+        <div class="members">
+            <h2>My Bandmate</h2>
+            <div class="member-list">
+                <div class="member">Rahmah<br>Omar</div>
+                 <div class="member">Izzah Farhanah<br>Mohd Nadzri</div>
+                <div class="member">Muhammad Danish Wafri<br>Tajul'Ashikin</div>
+                <div class="member">Aimi Safiya<br>Nazirun</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Not just brassband, but chapters of the same story.</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">IMD 316 Assignment</p>
+        </footer>
+    </div>
+</body>
+</html>

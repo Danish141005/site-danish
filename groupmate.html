@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Groupmate | Journey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(Gamba/blue\ collage.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 28, 46, 0.7);
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(100, 150, 200, 0.2);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #6ba8e8;
+            margin-bottom: 10px;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #a8c6f0;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+        
+        .content {
+            display: flex;
+            gap: 30px;
+            margin: 30px 0;
+            align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+        }
+        
+        .photo-box {
+            flex: 1;
+        }
+        
+        .photo {
+            width: 100%;
+            border-radius: 10px;
+            border: 3px solid #3a5a8a;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+        .text-box {
+            flex: 1;
+            padding: 20px;
+            background: rgba(30, 50, 80, 0.4);
+            border-radius: 10px;
+            border-left: 4px solid #6ba8e8;
+        }
+        
+        h2 {
+            color: #a8c6f0;
+            margin-bottom: 15px;
+        }
+        
+        .members {
+            background: rgba(40, 60, 100, 0.4);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 1px solid #3a5a8a;
+            backdrop-filter: blur(5px);
+        }
+        
+        .members h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .member-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .member {
+            background: rgba(60, 90, 140, 0.6);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #4a7ab8;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        
+        .member:hover {
+            background: rgba(80, 120, 180, 0.8);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(100, 150, 200, 0.3);
+            color: #a8c6f0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MY GROUPMATE</h1>
+        <p class="subtitle">Semester 1 — Semester 5</p>
+        
+        <div class="content">
+            <div class="photo-box">
+                <img src="Gamba/gamba groupmate - Copy.jpg" alt="My Groupmate" class="photo">
+            </div>
+            
+            <div class="text-box">
+                <h2>Our Journey</h2>
+                <p>A friendship that lasts from Semester 1 until Semester 5 begins with awkward introductions and shared confusion, grows through late nights, stress, and quiet support, and slowly transforms into a bond built on trust, loyalty, and understanding.</p>
+                <p>From group assignments to exam preparations, these individuals have become more than just classmates. They are pillars of support and partners in growth.</p>
+            </div>
+        </div>
+        
+        <div class="members">
+            <h2>Group Members</h2>
+            <div class="member-list">
+                <div class="member">Marsha Nur Batrisya<br>Abdul Halim</div>
+                <div class="member">Muhammad Danish Wafri<br>Tajul 'Ashikin</div>
+                <div class="member">Damia Nabihah<br>Abu Hanif</div>
+                <div class="member">Nur Irdina Aishah<br>Nor Shahidan</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Not just classmates, but chapters of the same story.</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">IMD 316 Assignment</p>
+        </footer>
+    </div>
+</body>
+</html>

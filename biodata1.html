@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Biodata — Muhammad Danish Wafri</title>
+
+    <!-- Elegant fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root{
+            --bg:#868a8b;
+            --card:#d8c59a;
+            --card-shadow: 0 12px 28px rgba(20,30,40,0.12);
+            --muted:#6b7f8f;
+            --accent:#8b4b36;
+            --accent-2:#caa89d;
+            --glass: rgba(255,255,255,0.7);
+            --shadow: 0 8px 30px rgba(20,30,40,0.08);
+            --radius:14px;
+            --max-width:1100px;
+            --gap:22px;
+            --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+            --serif: "Playfair Display", Georgia, serif;
+        }
+
+        *{box-sizing:border-box}
+        html,body{height:100%;margin:0;background:var(--bg);font-family:var(--sans);color:var(--muted);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+
+        /* subtle full-bleed background image if available */
+        body{
+            background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.096), rgba(255,255,255,0.6)), url("Gamba/gif biodata.gif");
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            align-items:flex-start;
+            justify-content:center;
+            padding:40px 20px;
+        }
+
+        .wrap{
+            width:100%;
+            max-width:var(--max-width);
+            background: linear-gradient(180deg, #d7acaceb, rgba(231, 216, 216, 0.9));
+            border-radius:calc(var(--radius) + 6px);
+            padding:28px;
+            box-shadow:var(--shadow);
+            border:1px solid rgba(0,0,0,0.04);
+            backdrop-filter: blur(6px);
+        }
+
+        header{
+            display:flex;
+            align-items:center;
+            gap:18px;
+            margin-bottom:14px;
+        }
+        .avatar{
+            width:84px;height:84px;border-radius:16px;overflow:hidden;flex:0 0 84px;
+            box-shadow:0 8px 24px rgba(15,20,25,0.08);border:1px solid rgba(0,0,0,0.04);
+        }
+        .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+        header .title{
+            display:flex;flex-direction:column;
+        }
+        header h1{
+            margin:0;font-family:var(--serif);color:var(--accent);font-size:1.5rem;letter-spacing:0.6px;
+        }
+        header p.lead{
+            margin:6px 0 0;color:var(--muted);font-size:0.95rem;
+        }
+
+        .separator{
+            height:4px;border-radius:8px;background:linear-gradient(90deg,transparent,var(--accent-2),var(--accent));
+            margin:18px 0;border:0;
+        }
+
+        .gallery{
+            display:grid;
+            grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+            gap:12px;
+            margin-bottom:18px;
+        }
+        .gallery figure{
+            background:var(--card);
+            border-radius:12px;
+            overflow:hidden;
+            padding:6px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            box-shadow:0 8px 22px rgba(12,18,20,0.06);
+            border:1px solid rgba(0,0,0,0.03);
+            transition:transform .28s ease, box-shadow .28s ease;
+        }
+        .gallery figure:hover{ transform:translateY(-6px); box-shadow:0 18px 48px rgba(12,18,20,0.09); }
+        .gallery img{ width:100%; height:120px; object-fit:cover; border-radius:8px; display:block; }
+
+        main{
+            display:grid;
+            grid-template-columns: 1fr 340px;
+            gap:var(--gap);
+            align-items:start;
+        }
+        @media (max-width:920px){ main{grid-template-columns:1fr} .gallery img{height:110px} .wrap{padding:18px} .avatar{display:none} }
+
+        .card{
+            background:var(--card);
+            border-radius:12px;
+            padding:18px;
+            box-shadow:var(--shadow);
+            border-left:6px solid rgba(0,0,0,0.03);
+        }
+
+        .intro{ font-family:var(--serif); color:#334a56; line-height:1.62; font-size:1rem; }
+        .intro figure{
+            float:left;margin:0 16px 12px 0;width:180px;height:180px;overflow:hidden;border-radius:12px;
+            box-shadow:0 12px 30px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.03);
+        }
+        .intro figure img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+        h2.section{
+            margin:8px 0 12px;color:var(--accent);font-family:var(--serif);letter-spacing:0.4px;font-size:1.05rem;
+        }
+
+        .info{
+            background:linear-gradient(180deg,var(--glass), #d8c59a);
+            padding:12px;border-radius:10px;border:1px solid #d8c59a;
+
+            font-family:var(--serif);color:#244552;margin-bottom:10px;font-size:0.98rem;
+        }
+
+        aside .right-figure{
+            float:right;margin:0 0 12px 16px;width:160px;height:160px;border-radius:12px;overflow:hidden;
+            box-shadow:0 12px 30px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.03);
+        }
+        aside .right-figure img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+        .meta{ display:block;color:#7b8b95;margin-top:10px;font-size:0.9rem; }
+
+        .muted{color:#6b7f8f}
+        .right-title{ text-align:right; font-family:var(--serif); color:var(--accent); margin:0 0 12px; font-size:1.02rem; }
+
+        footer{ margin-top:18px; text-align:center; color:#7b8b95; font-size:0.9rem; }
+
+        /* small utilities */
+        .clearfix{clear:both}
+        .chip{display:inline-block;background:linear-gradient(90deg, rgba(139,75,54,0.06), rgba(202,168,157,0.06));padding:8px 12px;border-radius:999px;border:1px solid rgba(0,0,0,0.03);font-size:0.9rem;color:#334a56;margin-right:8px}
+    </style>
+</head>
+<body>
+    <div class="wrap" role="main">
+        <header>
+            <div class="avatar" aria-hidden="true">
+                <img src="Gamba/gamba diri sendiri.jpg" alt="Portrait">
+            </div>
+            <div class="title">
+                <h1>ଳ⋆.𖦹 ABOUT ME ୭ ˚.⁺⊹ .ᐟ</h1>
+                <p class="lead">Muhammad Danish Wafri — Student • UiTM • Born 14 October 2005</p>
+            </div>
+        </header>
+
+        <div class="separator" role="separator" aria-hidden="true"></div>
+
+        <div class="gallery" role="group" aria-label="photos">
+            <figure><a href="groupmate.html" class="chip" style="text-decoration:none;cursor:pointer;display:inline-block;transition:all .2s ease;border:1px solid var(--accent);background:linear-gradient(90deg, rgba(139,75,54,0.25), rgba(202,168,157,0.25));color:#1a2a32;" onmouseover="this.style.background='linear-gradient(90deg, rgba(139,75,54,0.4), rgba(202,168,157,0.4))';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='linear-gradient(90deg, rgba(139,75,54,0.25), rgba(202,168,157,0.25))';this.style.transform='translateY(0)'"></a><img src="Gamba/gamba groupmate.jpg" alt="Groupmate"></figure>
+            <figure><a href="family.html" class="chip" style="text-decoration:none;cursor:pointer;display:inline-block;transition:all .2s ease;border:1px solid var(--accent);background:linear-gradient(90deg, rgba(139,75,54,0.25), rgba(202,168,157,0.25));color:#1a2a32;" onmouseover="this.style.background='linear-gradient(90deg, rgba(139,75,54,0.4), rgba(202,168,157,0.4))';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='linear-gradient(90deg, rgba(139,75,54,0.25), rgba(202,168,157,0.25))';this.style.transform='translateY(0)'"></a><img src="gamba/gamba family copy.jpg" alt="Family"></figure>
+            <figure><a href="brassband.html" class="chip" style="text-decoration:none;cursor:pointer;display:inline-block;transition:all .2s ease;border:1px solid var(--accent);background:linear-gradient(90deg, rgba(139,75,54,0.25), rgba(202,168,157,0.25));color:#1a2a32;" onmouseover="this.style.background='linear-gradient(90deg, rgba(139,75,54,0.4), rgba(202,168,157,0.4))';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='linear-gradient(90deg, rgba(139,75,54,0.25), rgba(202,168,157,0.25))';this.style.transform='translateY(0)'"></a><img src="Gamba/gamba brassband copy.jpg" alt="Brassband"></figure>
+        </div>
+
+        <div class="separator" role="separator" aria-hidden="true"></div>
+
+        <main>
+            <section class="card" aria-labelledby="intro-heading">
+                <h2 id="intro-heading" class="section">Introduction</h2>
+
+                <article class="intro">
+                    <figure aria-hidden="true">
+                        <img src="Gamba/gamba diri sendiri.jpg" alt="Portrait of Muhammad Danish Wafri">
+                    </figure>
+
+                    <p>
+                        My name is Muhammad Danish Wafri bin Tajul 'Ashikin. I was born on 14 October 2005 and I am a Malaysian student currently studying at Universiti Teknologi MARA (UiTM). I value learning, discipline and respect, and I aim to grow academically while contributing positively to my community.
+                    </p>
+
+                    <p>
+                        I focus on steady personal improvement and strive to support my family through perseverance and a responsible mindset.
+                    </p>
+
+                    <div class="clearfix"></div>
+
+                    <h2 class="section" style="margin-top:14px">Full Name</h2>
+                    <div class="info">Muhammad Danish Wafri bin Tajul 'Ashikin</div>
+
+                    <h2 class="section" style="margin-top:12px">Date of Birth</h2>
+                    <div class="info">14 October 2005</div>
+                </article>
+            </section>
+
+            <aside>
+                <div class="right-title">More Information</div>
+
+                <div class="card" aria-label="more info">
+                    <div class="right-figure" aria-hidden="true">
+                        <img src="gamba/dad.jpg" alt="Family member">
+                    </div>
+
+                    <p style="margin:0 0 8px;font-family:var(--serif);color:#334a56;">
+                        Committed to learning and personal growth. I aim to achieve my goals through focus and perseverance.
+                    </p>
+
+                    <div style="margin-top:12px">
+                        <a href="https://shorturl.at/vd8zS" class="chip" style="text-decoration:none;cursor:pointer;display:inline-block;transition:all .2s ease;border:1px solid var(--accent);background:linear-gradient(90deg, rgba(139,75,54,0.25), rgba(202,168,157,0.25));color:#1a2a32;" onmouseover="this.style.background='linear-gradient(90deg, rgba(139,75,54,0.4), rgba(202,168,157,0.4))';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='linear-gradient(90deg, rgba(139,75,54,0.25), rgba(202,168,157,0.25))';this.style.transform='translateY(0)'">Malaysian</a>
+                        <a href="https://uitm.edu.my/index.php/en" class="chip" style="text-decoration:none;cursor:pointer;display:inline-block;transition:all .2s ease;border:1px solid var(--accent);background:linear-gradient(90deg, rgba(139,75,54,0.25), rgba(202,168,157,0.25));color:#1a2a32;" onmouseover="this.style.background='linear-gradient(90deg, rgba(139,75,54,0.4), rgba(202,168,157,0.4))';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='linear-gradient(90deg, rgba(139,75,54,0.25), rgba(202,168,157,0.25))';this.style.transform='translateY(0)'">Student • UiTM</a>
+                    </div>
+
+                    <small class="meta">.</small>
+                    <div class="clearfix"></div>
+                </div>
+            </aside>
+        </main>
+
+        <div class="separator" style="margin-top:18px"></div>
+
+        <footer>
+            © Muhammad Danish Wafri — Designed for clarity and readability
+        </footer>
+    </div>
+</body>
+</html>

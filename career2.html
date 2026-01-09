@@ -1,0 +1,118 @@
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="My Career Dreams - Librarian and Nurse">
+    <title>My Career Dreams</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root{--accent:#d8c59a;--text:#5b3f36;--muted:#2b2b2b;--glass:rgba(255,255,255,0.88);--radius:12px;--career-bg:rgba(215,172,172,0.95);}
+        *{box-sizing:border-box;}
+        html,body{height:100%;margin:0;font-family:Poppins,sans-serif;color:var(--text);}
+        body{background:url("Gamba/background 7.jpg") center/cover fixed;display:flex;align-items:center;justify-content:center;padding:28px;}
+        .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+        .skip-link:focus{left:16px;top:16px;width:auto;height:auto;padding:8px 12px;background:var(--accent);color:white;border-radius:6px;z-index:999;text-decoration:none;}
+        .card{width:100%;max-width:1000px;background:linear-gradient(180deg,var(--career-bg),#979292f5);border-radius:var(--radius);box-shadow:0 10px 35px rgba(0,0,0,0.2);padding:28px;line-height:1.4;margin:0 auto;}
+        .header{text-align:center;margin-bottom:24px;}
+        .header h1{margin:0 0 6px;font-family:"Playfair Display",serif;font-weight:600;letter-spacing:1px;font-size:2.2rem;color:var(--text);}
+        .subtitle{color:var(--muted);font-style:italic;font-size:0.95rem;}
+
+        .nav-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:20px 0;}
+        .btn{background:var(--accent);color:#fff;padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:600;border:none;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,0.12);transition:transform .18s ease,box-shadow .18s ease;margin:5px;}
+        .btn:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(0,0,0,0.18);}
+        .btn:focus{outline:none;box-shadow:0 0 0 3px rgba(209,155,77,0.24);}
+        .career-images{display:flex;gap:30px;justify-content:center;margin:30px 0;flex-wrap:wrap;}
+        .career-card{background:var(--glass);border-radius:var(--radius);padding:20px;width:280px;text-align:center;box-shadow:0 6px 16px rgba(0,0,0,0.12);transition:transform 0.3s ease,box-shadow 0.3s ease;}
+        .career-card:hover{transform:translateY(-5px);box-shadow:0 14px 28px rgba(0,0,0,0.18);}
+        .career-card img{width:100%;height:200px;object-fit:cover;border-radius:10px;border:5px solid var(--accent);margin-bottom:15px;cursor:pointer;}
+        .career-card h3{margin:10px 0;font-family:"Playfair Display",serif;color:var(--text);}
+
+        .hidden-info{display:none;margin-top:15px;padding:15px;background:rgba(216,197,154,0.2);border-radius:8px;border-left:4px solid var(--accent);}
+        .section{background:var(--glass);padding:20px;border-radius:var(--radius);margin:24px 0;box-shadow:0 4px 12px rgba(0,0,0,0.08);}
+        .section h2{font-family:"Playfair Display",serif;color:var(--text);margin-top:0;}
+        .section-content{display:flex;align-items:center;gap:20px;}
+        .section-img{width:180px;height:180px;object-fit:cover;border-radius:var(--radius);border:5px solid var(--accent);flex-shrink:0;}
+        .footer{text-align:center;margin-top:30px;padding-top:20px;border-top:2px solid rgba(216,197,154,0.3);color:var(--muted);font-style:italic;}
+        .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);align-items:center;justify-content:center;z-index:1000;}
+        .modal-content{max-width:85%;max-height:85%;border:5px solid var(--accent);border-radius:var(--radius);box-shadow:0 10px 30px rgba(0,0,0,0.3);}
+        .close{position:absolute;top:20px;right:30px;color:var(--accent);font-size:40px;cursor:pointer;text-shadow:0 2px 5px rgba(0,0,0,0.5);}
+        .close:hover{color:#fff;}
+
+        @media (max-width:768px){.card{padding:18px;}.header h1{font-size:1.8rem;}.section-content{flex-direction:column;text-align:center;}.section-img{width:150px;height:150px;}.career-card{width:100%;max-width:300px;}.modal-content{max-width:95%;}.close{top:10px;right:20px;font-size:32px;}}
+        @media (max-width:480px){body{padding:15px;}.header h1{font-size:1.5rem;}.career-images{gap:15px;}}
+        @media (prefers-reduced-motion:reduce){.btn,.career-card,.section-content{transition:none !important;}}
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <main id="main" class="card" role="main" aria-labelledby="pageTitle">
+        <div class="header">
+            <h1 id="pageTitle">MY CAREER DREAMS</h1>
+            <p class="subtitle">Librarian & Nurse — Two passions, one purpose</p>
+        </div>
+        <div class="nav-buttons" aria-label="Navigation">
+            <a class="btn" href="biodata1.html" target="_blank" rel="noopener" aria-label="Open biodata in a new tab">Biodata</a>
+            <a class="btn" href="#" aria-label="Current page: Career" style="background:rgba(216,197,154,0.8);">Career</a>
+            <a class="btn" href="hobbies.html" target="_blank" rel="noopener" aria-label="Open hobbies in a new tab">Hobbies</a>
+            <a class="btn" href="skill.html" target="_blank" rel="noopener" aria-label="Open skills in a new tab">Skills</a>
+        </div>
+        <div class="career-images">
+            <div class="career-card">
+                <img src="gamba/librarian.jpg" alt="Librarian in a library" onclick="openModal(this.src)" loading="lazy">
+                <h3>Librarian</h3>
+                <div>
+                    <button class="btn" onclick="showInfo('lib')" aria-expanded="false" aria-controls="lib-info">Learn More</button>
+                    <button class="btn" onclick="openModal('Gamba/librarian.jpg')">View Image</button>
+                </div>
+                <div id="lib-info" class="hidden-info" role="region" aria-live="polite">I want to be a librarian to help people find knowledge. Libraries are gateways to learning, and I believe everyone should have access to information that can transform their lives.</div>
+            </div>
+            <div class="career-card">
+                <img src="gamba/nurses.jpg" alt="Nurses helping patients" onclick="openModal(this.src)" loading="lazy">
+                <h3>Nurse</h3>
+                <div>
+                    <button class="btn" onclick="showInfo('nurse')" aria-expanded="false" aria-controls="nurse-info">Learn More</button>
+                    <button class="btn" onclick="openModal('Gamba/nurses.jpg')">View Image</button>
+                </div>
+                <div id="nurse-info" class="hidden-info" role="region" aria-live="polite">I want to be a nurse to care for people in need. Nursing combines scientific knowledge with compassionate care, allowing me to make a real difference in people's lives during challenging times.</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-content">
+                <img src="gamba/gamba diri sendiri.jpg" alt="Photo of myself" class="section-img" loading="lazy">
+                <div>
+                    <h2>My Dream</h2>
+                    <p>My career dream is to become both a librarian and a nurse. I love learning and helping others. These two professions allow me to do both. As a librarian, I can guide people to knowledge that empowers them. As a nurse, I can provide hands-on care that heals both body and spirit. Together, these roles represent my complete vision of service.</p>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-content">
+                <div>
+                    <h2>My Goal</h2>
+                    <p>I want to care for people and make a difference in their lives. Both careers let me serve people in meaningful ways. Whether through the quiet guidance in a library or the attentive care in a hospital, my goal is to touch lives positively. I believe that access to knowledge and healthcare are fundamental human needs, and I'm passionate about contributing to both.</p>
+                </div>
+                <img src="gamba/nurses 1.jpg" alt="Nurse caring for patient" class="section-img" loading="lazy">
+            </div>
+        </div>
+        <div class="footer">
+            <p>"Two passions, one purpose" — Bridging knowledge and care</p>
+            <p style="font-size:0.9rem;margin-top:5px;">Click on images to view them larger</p>
+        </div>
+    </main>
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" style="display:none;">
+        <span class="close" onclick="closeModal()" aria-label="Close image viewer">&times;</span>
+        <img id="modal-img" class="modal-content" alt="Enlarged view">
+    </div>
+
+    <script>
+        function showInfo(t){const e=document.getElementById(t+'-info'),o=e.style.display==='block';e.style.display=o?'none':'block';document.querySelector(`button[onclick="showInfo('${t}')"]`).setAttribute('aria-expanded',!o);}
+        function openModal(e){document.getElementById('modal-img').src=e;document.getElementById('modal').style.display='flex';document.getElementById('modal').setAttribute('aria-hidden','false');document.addEventListener('keydown',trapTabKey);}
+        function closeModal(){document.getElementById('modal').style.display='none';document.getElementById('modal').setAttribute('aria-hidden','true');document.removeEventListener('keydown',trapTabKey);}
+        document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+        document.getElementById('modal').addEventListener('click',e=>{if(e.target===this)closeModal();});
+        function trapTabKey(e){if(e.key==='Tab'){const t=document.getElementById('modal'),o=t.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'),n=o[0],l=o[o.length-1];e.shiftKey?document.activeElement===n&&(l.focus(),e.preventDefault()):document.activeElement===l&&(n.focus(),e.preventDefault());}}
+        document.addEventListener('DOMContentLoaded',()=>{document.querySelector('button[onclick="showInfo(\'lib\')"]').setAttribute('aria-expanded','false');document.querySelector('button[onclick="showInfo(\'nurse\')"]').setAttribute('aria-expanded','false');document.querySelector('.close').setAttribute('aria-label','Close enlarged image view');});
+    </script>
+</body>
+</html>

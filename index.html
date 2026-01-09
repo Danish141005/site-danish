@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="A friendly personal intro page — quick links, social buttons and improved accessibility." />
+    <title>Get To Know Me</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root{
+            --accent: #d8c59a;
+            --text: #5b3f36;
+            --muted: #2b2b2b;
+            --glass: rgba(255,255,255,0.88);
+            --radius: 12px;
+            --btn-focus: 3px rgba(209,155,77,0.24);
+        }
+
+        *{box-sizing:border-box}
+        html,body{height:100%;margin:0;font-family:Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; -webkit-font-smoothing:antialiased;}
+        body{
+            color:var(--text);
+            background: url("gamba/background 7.jpg") center/cover no-repeat fixed;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:28px;
+        }
+
+        /* Card */
+        .card{
+            width:100%;
+            max-width:920px;
+            background: linear-gradient(180deg, #d7acaceb, #979292f5);
+            border-radius:var(--radius);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+            padding:28px;
+            text-align:center;
+            line-height:1.4;
+        }
+
+        /* Skip link (visible on focus) */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        .skip-link:focus {
+            left: 16px;
+            top: 16px;
+            width: auto;
+            height: auto;
+            padding: 8px 12px;
+            background: var(--accent);
+            color: white;
+            border-radius: 6px;
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        header h1{
+            margin:0 0 6px;
+            font-family: "Playfair Display", serif;
+            font-weight:600;
+            letter-spacing:1px;
+            font-size:2rem;
+            color:var(--text);
+        }
+        .subtitle{
+            color:var(--muted);
+            margin-bottom:14px;
+            font-style:italic;
+            font-size:0.95rem;
+        }
+
+        .portrait{
+            width:160px;
+            height:160px;
+            object-fit:cover;
+            border-radius:16px;
+            border:8px solid var(--accent);
+            display:block;
+            margin:0 auto 18px;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.16);
+        }
+
+        nav{
+            display:flex;
+            gap:12px;
+            justify-content:center;
+            flex-wrap:wrap;
+            margin:16px 0;
+        }
+        .btn{
+            background:var(--accent);
+            color:#fff;
+            padding:10px 18px;
+            border-radius:10px;
+            text-decoration:none;
+            font-weight:600;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+            transition: transform .18s ease, box-shadow .18s ease;
+            border: none;
+        }
+        .btn:hover{ transform: translateY(-3px); box-shadow: 0 14px 28px rgba(0,0,0,0.18); }
+        .btn:active{ transform: translateY(-1px); }
+        .btn:focus{ outline: none; box-shadow: var(--btn-focus); }
+
+        .social{
+            display:flex;
+            gap:14px;
+            justify-content:center;
+            margin-top:14px;
+            position:relative;
+        }
+        .social a{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            width:56px;
+            height:56px;
+            border-radius:10px;
+            overflow:hidden;
+            text-decoration:none;
+            background:#d8c59a;
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+        .social a img{ width:44px; height:44px; object-fit:cover; display:block; }
+        .social a:hover{ transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.12); }
+        .social a:focus{ outline:none; box-shadow: var(--btn-focus); }
+
+        /* click marker */
+        .click-mark{
+            position:absolute;
+            width:16px;
+            height:16px;
+            border-radius:50%;
+            background: var(--text);
+            transform: translate(-50%,-50%) scale(0);
+            pointer-events:none;
+            transition: transform .35s ease, opacity .45s ease;
+            opacity:1;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+            z-index: 10;
+        }
+        .click-mark.expand{
+            transform: translate(-50%,-50%) scale(3.2);
+            opacity:0;
+        }
+
+        hr{
+            border:0;
+            height:2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin:20px 0;
+            border-radius:2px;
+        }
+
+        .top-link{
+            display:inline-block;
+            margin-top:12px;
+            color:var(--muted);
+            text-decoration:none;
+            font-size:0.95rem;
+        }
+        .top-link:hover{ text-decoration:underline;color:#6b4f40 }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .btn, .social a, .click-mark { transition: none !important; animation: none !important; }
+        }
+
+        /* Responsive */
+        @media (max-width:560px){
+            .card{padding:18px}
+            header h1{font-size:1.45rem}
+            .portrait{width:128px;height:128px}
+            .social a{width:50px;height:50px}
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const social = document.querySelector('.social');
+            if (!social) return;
+
+            function createMark(container, x, y) {
+                const mark = document.createElement('span');
+                mark.className = 'click-mark';
+                mark.style.left = x + 'px';
+                mark.style.top = y + 'px';
+                container.appendChild(mark);
+                // allow one frame then expand for animation
+                requestAnimationFrame(() => mark.classList.add('expand'));
+                setTimeout(() => mark.remove(), 700);
+            }
+
+            // Pointer / mouse clicks: show mark under pointer
+            social.addEventListener('click', function (e) {
+                const rect = social.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                createMark(social, x, y);
+
+                const link = e.target.closest('a');
+                if (link && social.contains(link)) {
+                    link.dataset.lastClickX = Math.round(x);
+                    link.dataset.lastClickY = Math.round(y);
+                    console.log('Social click:', { href: link.href, local: { x: Math.round(x), y: Math.round(y) } });
+                }
+            });
+
+            // Keyboard activation: space/enter on focused social links — place mark at center of that link
+            social.addEventListener('keydown', function (e) {
+                if (e.key !== 'Enter' && e.key !== ' ') return;
+                const link = e.target.closest('a');
+                if (!link || !social.contains(link)) return;
+                e.preventDefault();
+                const rect = social.getBoundingClientRect();
+                const linkRect = link.getBoundingClientRect();
+                const x = (linkRect.left + linkRect.right) / 2 - rect.left;
+                const y = (linkRect.top + linkRect.bottom) / 2 - rect.top;
+                createMark(social, x, y);
+                link.click(); // trigger navigation
+            });
+
+            // Make social area keyboard-focusable for easier access on some devices
+            const anchors = social.querySelectorAll('a');
+            anchors.forEach(a => a.setAttribute('tabindex', '0'));
+
+            // Expose small helper to show a friendly tooltip when hovering or focusing social icons
+            social.addEventListener('mouseover', handleTip);
+            social.addEventListener('focusin', handleTip);
+            function handleTip(e) {
+                const a = e.target.closest('a');
+                if (!a) return;
+                const label = a.querySelector('img')?.alt || 'Social';
+                a.setAttribute('aria-label', label + ' (opens in new tab)');
+            }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <main id="main" class="card" role="main" aria-labelledby="pageTitle">
+        <header>
+            <h1 id="pageTitle"> 𓈒𓏸 ଳ⋆.𖦹 WELCOME TO MY WEBSITE ୭ ˚.⁺⊹ .</h1>
+            <p class="subtitle">A friendly introduction — click any link to learn more. Links open in a new tab.</p>
+        </header>
+
+        <img src="gamba/gamba diri sendiri.jpg" alt="Portrait photo" class="portrait" loading="lazy">
+
+        <nav aria-label="Primary navigation">
+            <a class="btn" href="biodata1.html" target="_blank" rel="noopener" aria-label="Open biodata in a new tab">Biodata</a>
+            <a class="btn" href="career2.html" target="_blank" rel="noopener" aria-label="Open career page in a new tab">Career</a>
+            <a class="btn" href="hobbies.html" target="_blank" rel="noopener" aria-label="Open hobbies in a new tab">Hobbies</a>
+            <a class="btn" href="skill.html" target="_blank" rel="noopener" aria-label="Open skills in a new tab">Skills</a>
+            <a class="btn" href="interest.html" target="_blank" rel="noopener" aria-label="Open interests in a new tab">Interests</a>
+            <a class="btn" href="strength.html" target="_blank" rel="noopener" aria-label="Open strengths in a new tab">Strengths</a>
+        </nav>
+
+        <hr>
+
+        <p class="subtitle" aria-hidden="true">My social media</p>
+        <div class="social" aria-label="Social links">
+            <a href="https://www.tiktok.com/@machiatoexpresso?lang=en" target="_blank" rel="noopener" aria-label="TikTok (opens in new tab)">
+                <img src="gamba/button tiktok.jpg" alt="TikTok logo" loading="lazy">
+            </a>
+            <a href="https://x.com/xqwzim" target="_blank" rel="noopener" aria-label="X / Twitter (opens in new tab)">
+                <img src="gamba/button twitter.jpg" alt="X / Twitter logo" loading="lazy">
+            </a>
+        </div>
+    </main>
+</body>
+</html></a></div></nav>

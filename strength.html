@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Strengths | Personal Growth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #d8c59a;
+            --text: #5b3f36;
+            --muted: #2b2b2b;
+            --glass: rgba(255,255,255,0.88);
+            --radius: 12px;
+            --btn-focus: 3px rgba(209,155,77,0.24);
+            --shadow: 0 10px 35px rgba(0,0,0,0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background: url("Gamba/background 7.jpg") center/cover no-repeat fixed;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .card {
+            width: 100%;
+            max-width: 1200px;
+            background: linear-gradient(180deg, #d7acaceb, #979292f5);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            line-height: 1.6;
+        }
+        
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        
+        .skip-link:focus {
+            left: 16px;
+            top: 16px;
+            width: auto;
+            height: auto;
+            padding: 8px 12px;
+            background: var(--accent);
+            color: white;
+            border-radius: 6px;
+            z-index: 999;
+            text-decoration: none;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        header h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            color: var(--muted);
+            font-style: italic;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+        
+        .btn {
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+            transition: transform .18s ease, box-shadow .18s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.18);
+        }
+        
+        .btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .btn:focus {
+            outline: none;
+            box-shadow: var(--btn-focus);
+        }
+        
+        hr {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 20px 0;
+            border-radius: 2px;
+        }
+        
+        /* Content Layout */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius);
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(216, 197, 154, 0.3);
+        }
+        
+        .intro-text {
+            margin-bottom: 30px;
+        }
+        
+        .intro-text p {
+            margin-bottom: 20px;
+            color: var(--text);
+            line-height: 1.8;
+        }
+        
+        /* Strengths Grid */
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .strength-card {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: var(--radius);
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(216, 197, 154, 0.3);
+            text-align: center;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+        }
+        
+        .strength-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .strength-icon {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+        
+        .strength-card:hover .strength-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .strength-title {
+            font-family: "Playfair Display", serif;
+            font-size: 1.6rem;
+            color: var(--text);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .strength-desc {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* Visual Showcase */
+        .visual-showcase {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius);
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(216, 197, 154, 0.3);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        
+        @media (max-width: 1024px) {
+            .visual-showcase {
+                position: static;
+            }
+        }
+        
+        .showcase-title {
+            font-family: "Playfair Display", serif;
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        @media (max-width: 768px) {
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .photo-item {
+            aspect-ratio: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            border: 2px solid rgba(216, 197, 154, 0.3);
+        }
+        
+        .photo-item:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .photo-item.large {
+            grid-column: span 2;
+            aspect-ratio: 16/9;
+        }
+        
+        @media (max-width: 768px) {
+            .photo-item.large {
+                grid-column: span 1;
+            }
+        }
+        
+        .photo-caption {
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: 15px;
+        }
+        
+        /* Progress Section */
+        .progress-section {
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 25px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(216, 197, 154, 0.3);
+        }
+        
+        .progress-title {
+            font-family: "Playfair Display", serif;
+            font-size: 1.4rem;
+            color: var(--text);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .progress-item {
+            margin-bottom: 20px;
+        }
+        
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: var(--text);
+            font-weight: 500;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: rgba(216, 197, 154, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid rgba(216, 197, 154, 0.3);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), #c9b382);
+            border-radius: 5px;
+            transition: width 1.5s ease;
+            width: 0;
+        }
+        
+        .progress-fill.hardwork { width: 95%; }
+        .progress-fill.patience { width: 90%; }
+        .progress-fill.kindness { width: 92%; }
+        
+        /* Quote Section */
+        .quote-section {
+            background: rgba(216, 197, 154, 0.15);
+            padding: 30px;
+            border-radius: var(--radius);
+            border-left: 3px solid var(--accent);
+            margin: 30px 0;
+            text-align: center;
+            font-style: italic;
+            color: var(--text);
+        }
+        
+        .quote-text {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .quote-author {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(216, 197, 154, 0.3);
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .card {
+                padding: 20px;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .strengths-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .main-content, .visual-showcase, .progress-section {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .strength-card {
+                padding: 20px;
+            }
+            
+            .quote-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    
+    <main id="main" class="card" role="main" aria-labelledby="pageTitle">
+        <header>
+            <h1 id="pageTitle">My Core Strengths</h1>
+            <p class="tagline">The qualities that define my character and drive my personal growth</p>
+        </header>
+        
+        <hr>
+        
+        <div class="content-wrapper">
+            <div class="main-content">
+                <div class="intro-text">
+                    <p>Everyone has their own strengths that make them unique, and I believe my biggest strengths are hard work, patience, and kindness. I always try to give my best effort in everything I do, whether it is studying or completing a task. I believe that being hardworking helps me achieve my goals and overcome challenges.</p>
+                    <p>I am also patient, which allows me to stay calm and focused even when things get difficult. This helps me handle problems more effectively and learn from my mistakes.</p>
+                    <p>Another one of my strengths is kindness. I enjoy helping others and making people feel comfortable around me. I believe that being kind not only builds good relationships but also creates a positive environment. My strengths help me grow as a person and motivate me to become better every day. I will continue to use these qualities to reach my dreams and succeed in life.</p>
+                </div>
+                
+                <div class="strengths-grid">
+                    <div class="strength-card">
+                        <div class="strength-icon">💪</div>
+                        <h3 class="strength-title">Hard Work</h3>
+                        <p class="strength-desc">I believe in giving my absolute best in everything I do. Whether it's academic pursuits or personal projects, I approach each task with dedication and perseverance.</p>
+                    </div>
+                    
+                    <div class="strength-card">
+                        <div class="strength-icon">⏳</div>
+                        <h3 class="strength-title">Patience</h3>
+                        <p class="strength-desc">In challenging situations, I remain calm and composed. This patience allows me to think clearly, make better decisions, and persist through difficulties.</p>
+                    </div>
+                    
+                    <div class="strength-card">
+                        <div class="strength-icon">❤️</div>
+                        <h3 class="strength-title">Kindness</h3>
+                        <p class="strength-desc">I genuinely care about helping others and creating positive connections. This kindness extends to everyone I interact with, fostering trust and building strong relationships.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="visual-showcase">
+                <h2 class="showcase-title">Strength in Action</h2>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="Gamba/hardwork.jpeg" alt="Hard work in action" loading="lazy">
+                    </div>
+                    <div class="photo-item">
+                        <img src="Gamba/patient.jpeg" alt="Patience and focus" loading="lazy">
+                    </div>
+                    <div class="photo-item large">
+                        <img src="Gamba/connection.jpeg" alt="Kindness and connection" loading="lazy">
+                    </div>
+                </div>
+                <p class="photo-caption">Moments that reflect my core strengths in daily life</p>
+                
+                <div class="progress-section">
+                    <h3 class="progress-title">Strength Development</h3>
+                    <div class="progress-item">
+                        <div class="progress-label">
+                            <span>Hard Work</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill hardwork"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label">
+                            <span>Patience</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill patience"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label">
+                            <span>Kindness</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill kindness"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quote-section">
+            <p class="quote-text">"Our strengths grow out of our weaknesses. When I work on my patience, I discover resilience. When I practice kindness, I find connection. When I commit to hard work, I unlock potential."</p>
+            <p class="quote-author">— Personal Reflection</p>
+        </div>
+        
+        <div class="footer">
+            <p>Strengths are not just qualities we possess, but choices we make every day</p>
+            <p style="margin-top: 10px; font-size: 0.85rem;">Building character through consistent practice and mindful living</p>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate progress bars on scroll
+            const progressObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const fills = entry.target.querySelectorAll('.progress-fill');
+                        fills.forEach(fill => {
+                            fill.style.width = '0%';
+                            setTimeout(() => {
+                                if (fill.classList.contains('hardwork')) fill.style.width = '95%';
+                                if (fill.classList.contains('patience')) fill.style.width = '90%';
+                                if (fill.classList.contains('kindness')) fill.style.width = '92%';
+                            }, 300);
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const progressSection = document.querySelector('.progress-section');
+            if (progressSection) {
+                progressObserver.observe(progressSection);
+            }
+            
+            // Add hover effects to strength cards
+            const strengthCards = document.querySelectorAll('.strength-card');
+            strengthCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const icon = card.querySelector('.strength-icon');
+                    icon.style.transform = 'scale(1.1) rotate(5deg)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    const icon = card.querySelector('.strength-icon');
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+            
+            // Photo hover effects
+            const photoItems = document.querySelectorAll('.photo-item');
+            photoItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    item.style.transform = 'scale(1.05)';
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

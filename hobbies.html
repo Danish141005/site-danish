@@ -1,0 +1,157 @@
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="My Hobbies - TXT Music & Chinese Dramas">
+    <title>My Hobbies | TXT & Cdramas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root{--accent:#d8c59a;--text:#5b3f36;--muted:#2b2b2b;--glass:rgba(255,255,255,0.88);--radius:12px;--hobby-bg:rgba(215,172,172,0.95);--txt-color:#6d4c41;--cdrama-color:#795548;}
+        *{margin:0;padding:0;box-sizing:border-box;}
+        html,body{height:100%;margin:0;font-family:Poppins,sans-serif;color:var(--text);}
+        body{background:url("Gamba/background 7.jpg") center/cover fixed;display:flex;align-items:center;justify-content:center;padding:28px;}
+        .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+        .skip-link:focus{left:16px;top:16px;width:auto;height:auto;padding:8px 12px;background:var(--accent);color:white;border-radius:6px;z-index:999;text-decoration:none;}
+        .card{width:100%;max-width:1100px;background:linear-gradient(180deg,var(--hobby-bg),#979292f5);border-radius:var(--radius);box-shadow:0 10px 35px rgba(0,0,0,0.2);padding:28px;line-height:1.4;margin:0 auto;}
+        .header{text-align:center;margin-bottom:32px;}
+
+
+        .header h1{margin:0 0 8px;font-family:"Playfair Display",serif;font-weight:600;letter-spacing:1px;font-size:2.5rem;color:var(--text);position:relative;display:inline-block;}
+        .header h1::after{content:'';display:block;width:60px;height:3px;background:var(--accent);margin:10px auto;border-radius:2px;}
+        .subtitle{color:var(--muted);font-style:italic;font-size:1.1rem;}
+        .nav-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:24px 0;}
+        .btn{background:var(--accent);color:#fff;padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:600;border:none;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,0.12);transition:transform .18s ease,box-shadow .18s ease;}
+        .btn:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(0,0,0,0.18);}
+        .btn:focus{outline:none;box-shadow:0 0 0 3px rgba(209,155,77,0.24);}
+        .btn.active{background:rgba(216,197,154,0.8);}
+
+
+        .hobbies-container{display:flex;gap:30px;margin:40px 0;flex-wrap:wrap;justify-content:center;}
+        .hobby-card{flex:1;min-width:300px;background:var(--glass);border-radius:var(--radius);padding:30px;box-shadow:0 6px 16px rgba(0,0,0,0.12);transition:transform 0.3s ease,box-shadow 0.3s ease;border-top:5px solid var(--accent);}
+        .hobby-card:hover{transform:translateY(-8px);box-shadow:0 14px 28px rgba(0,0,0,0.18);}
+        .hobby-card.txt{border-top-color:var(--txt-color);}
+        .hobby-card.cdrama{border-top-color:var(--cdrama-color);}
+        .hobby-icon{font-size:2.8rem;margin-bottom:20px;text-align:center;color:var(--text);}
+        .hobby-title{font-family:"Playfair Display",serif;font-size:1.8rem;margin-bottom:15px;color:var(--text);text-align:center;}
+        .hobby-content{color:var(--muted);line-height:1.7;font-size:1rem;text-align:justify;}
+        .hobby-content p{margin-bottom:15px;}
+        .gallery{margin:50px 0;}
+
+
+        .section-title{text-align:center;font-family:"Playfair Display",serif;font-size:1.8rem;margin-bottom:30px;color:var(--text);position:relative;display:inline-block;left:50%;transform:translateX(-50%);}
+        .section-title::after{content:'';display:block;width:40px;height:2px;background:var(--accent);margin:8px auto;border-radius:2px;}
+        .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
+        .gallery-item{background:var(--glass);border-radius:var(--radius);overflow:hidden;transition:transform 0.3s ease,box-shadow 0.3s ease;box-shadow:0 4px 12px rgba(0,0,0,0.08);border:1px solid rgba(216,197,154,0.3);}
+        .gallery-item:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,0.15);}
+        .gallery-image{width:100%;height:200px;object-fit:cover;cursor:pointer;border-bottom:3px solid var(--accent);}
+        .gallery-content{padding:20px;}
+
+
+        .gallery-caption{font-family:"Playfair Display",serif;font-size:1.3rem;margin-bottom:15px;color:var(--text);text-align:center;}
+        .gallery-buttons{display:flex;gap:10px;justify-content:center;margin-top:15px;flex-wrap:wrap;}
+        .gallery-btn{padding:8px 16px;background:var(--accent);color:white;border:none;border-radius:8px;cursor:pointer;transition:all 0.3s;font-weight:500;font-family:Poppins,sans-serif;}
+        .gallery-btn:hover{background:var(--txt-color);transform:translateY(-2px);}
+        .gallery-btn.secondary{background:var(--cdrama-color);}
+        .gallery-btn.secondary:hover{background:var(--txt-color);}
+
+
+        .gallery-desc{color:var(--muted);font-size:0.95rem;text-align:center;margin-top:15px;display:none;padding:12px;background:rgba(216,197,154,0.1);border-radius:8px;border-left:3px solid var(--accent);}
+        .quote{text-align:center;margin:50px 0;padding:30px;background:rgba(216,197,154,0.15);border-radius:var(--radius);font-style:italic;font-size:1.2rem;color:var(--text);border-left:4px solid var(--accent);font-family:"Playfair Display",serif;}
+        .footer{text-align:center;margin-top:40px;padding-top:25px;border-top:2px solid rgba(216,197,154,0.3);color:var(--muted);font-style:italic;}
+        .footer p{margin:5px 0;}
+        .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);align-items:center;justify-content:center;z-index:1000;}
+        .modal-content{max-width:85%;max-height:85%;border:5px solid var(--accent);border-radius:var(--radius);box-shadow:0 10px 30px rgba(0,0,0,0.3);}
+        .modal-caption{color:var(--accent);text-align:center;margin-top:15px;font-size:1.2rem;font-family:"Playfair Display",serif;}
+        .close{position:absolute;top:20px;right:30px;color:var(--accent);font-size:40px;cursor:pointer;text-shadow:0 2px 5px rgba(0,0,0,0.5);transition:color 0.3s;}
+        .close:hover{color:#fff;}
+
+
+        @media (max-width:768px){.card{padding:20px;}.header h1{font-size:2rem;}.hobbies-container{flex-direction:column;}.hobby-card{min-width:100%;}.gallery-grid{grid-template-columns:1fr;}.gallery-buttons{flex-direction:column;}.gallery-btn{width:100%;}.modal-content{max-width:95%;}.close{top:10px;right:20px;font-size:32px;}}
+        @media (max-width:480px){body{padding:15px;}.header h1{font-size:1.8rem;}.hobby-card{padding:20px;}}
+        @media (prefers-reduced-motion:reduce){.btn,.hobby-card,.gallery-item{transition:none !important;}}
+    </style>
+
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <main id="main" class="card" role="main" aria-labelledby="pageTitle">
+        <div class="header">
+            <h1 id="pageTitle">My Favorite Hobbies</h1>
+            <p class="subtitle">Music that moves me • Stories that touch my heart</p>
+        </div>
+        <div class="nav-buttons" aria-label="Navigation">
+            <a class="btn" href="biodata1.html" target="_blank" rel="noopener" aria-label="Open biodata in a new tab">Biodata</a>
+            <a class="btn" href="career2.html" target="_blank" rel="noopener" aria-label="Open career page in a new tab">Career</a>
+            <a class="btn active" href="#" aria-label="Current page: Hobbies">Hobbies</a>
+            <a class="btn" href="skill.html" target="_blank" rel="noopener" aria-label="Open skills in a new tab">Skills</a>
+        </div>
+        <div class="hobbies-container">
+            <div class="hobby-card txt" role="region" aria-labelledby="txt-title">
+                <div class="hobby-icon" aria-hidden="true">🎵</div>
+                <h2 id="txt-title" class="hobby-title">Listening to TXT</h2>
+                <div class="hobby-content">
+                    <p>I love listening to TXT because their songs are meaningful, catchy, and full of emotion. Their music always helps me relax after a long day, and I enjoy following their growth as artists.</p>
+                    <p>Each member has a unique charm, and their teamwork inspires me. Whenever I listen to their songs, I feel comforted and motivated at the same time. Their lyrics often speak to the experiences of youth, which I find very relatable.</p>
+                </div>
+            </div>
+            <div class="hobby-card cdrama" role="region" aria-labelledby="cdrama-title">
+                <div class="hobby-icon" aria-hidden="true">🎬</div>
+                <h2 id="cdrama-title" class="hobby-title">Watching Chinese Dramas</h2>
+                <div class="hobby-content">
+                    <p>I enjoy watching Chinese dramas (cdramas) because the stories are often touching and full of interesting characters. I like how each drama shows different aspects of Chinese culture and history.</p>
+                    <p>They teach lessons about friendship, love, and perseverance. Watching cdramas allows me to escape into another world and experience different emotions through the characters. The beautiful cinematography and costumes are an added bonus!</p>
+                </div>
+            </div>
+        </div>
+        <div class="gallery">
+            <h2 class="section-title">My Hobby Moments</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" role="group" aria-labelledby="txt-caption">
+                    <img src="Gamba/txt my fav.jpg" alt="TXT album cover or concert image" class="gallery-image" onclick="openModal(this.src,'TXT Music Vibes')" loading="lazy">
+                    <div class="gallery-content">
+                        <div id="txt-caption" class="gallery-caption">TXT Music</div>
+                        <div class="gallery-buttons">
+                            <button class="gallery-btn" onclick="showDetails('txt')" aria-expanded="false" aria-controls="txt-details">More Info</button>
+                            <button class="gallery-btn secondary" onclick="openModal('Gamba/txt my fav.jpg','TXT Music Vibes')">View Larger</button>
+                        </div>
+                        <div id="txt-details" class="gallery-desc" role="region" aria-live="polite">TXT's music brings so much joy to my life! Their songs like "Blue Hour" and "Sugar Rush Ride" are my absolute favorites for relaxing and unwinding. Their meaningful lyrics and catchy melodies always lift my mood. 🎶</div>
+                    </div>
+                </div>
+                <div class="gallery-item" role="group" aria-labelledby="cdrama-caption">
+                    <img src="Gamba/the first.jpg" alt="Scene from a Chinese drama" class="gallery-image" onclick="openModal(this.src,'Chinese Drama Moments')" loading="lazy">
+                    <div class="gallery-content">
+                        <div id="cdrama-caption" class="gallery-caption">Chinese Dramas</div>
+                        <div class="gallery-buttons">
+                            <button class="gallery-btn" onclick="showDetails('cdrama')" aria-expanded="false" aria-controls="cdrama-details">More Info</button>
+                            <button class="gallery-btn secondary" onclick="openModal('Gamba/the first.jpg','Chinese Drama Moments')">View Larger</button>
+                        </div>
+                        <div id="cdrama-details" class="gallery-desc" role="region" aria-live="polite">Cdramas like "Eternal Love" and "The Untamed" have amazing stories and beautiful cinematography. The character development and historical settings make them perfect for weekend binge-watching! 📺✨</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="quote" role="complementary">"Both listening to TXT and watching cdramas make my free time enjoyable and meaningful. They remind me that stories and music have the power to connect us across cultures and experiences."</div>
+        <div class="footer">
+            <p>My Personal Hobbies • TXT & Cdramas Enthusiast</p>
+            <p>"Find joy in the little things that make your heart sing"</p>
+        </div>
+    </main>
+    <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-caption" style="display:none;">
+        <span class="close" onclick="closeModal()" aria-label="Close image viewer">&times;</span>
+        <img id="modalImage" class="modal-content" alt="Enlarged hobby image">
+        <div id="modalCaption" class="modal-caption"></div>
+    </div>
+    <script>
+        function showDetails(t){const e=document.getElementById(t+'-details'),o=e.style.display==='block';document.querySelectorAll('.gallery-desc').forEach(d=>{if(d!==e){d.style.display='none';const n=d.parentElement.querySelector(`button[onclick^="showDetails"]`);if(n)n.setAttribute('aria-expanded','false');}});e.style.display=o?'none':'block';document.querySelector(`button[onclick="showDetails('${t}')"]`).setAttribute('aria-expanded',!o);}
+        function openModal(e,t){document.getElementById('modalImage').src=e;document.getElementById('modalCaption').textContent=t||'';document.getElementById('imageModal').style.display='flex';document.getElementById('imageModal').setAttribute('aria-hidden','false');document.addEventListener('keydown',trapTabKey);}
+        function closeModal(){document.getElementById('imageModal').style.display='none';document.getElementById('imageModal').setAttribute('aria-hidden','true');document.removeEventListener('keydown',trapTabKey);}
+        document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+        document.getElementById('imageModal').addEventListener('click',e=>{if(e.target===this)closeModal();});
+        document.addEventListener('click',e=>{if(!e.target.closest('.gallery-item')){document.querySelectorAll('.gallery-desc').forEach(t=>{t.style.display='none';});document.querySelectorAll('.gallery-btn[aria-expanded="true"]').forEach(t=>{t.setAttribute('aria-expanded','false');});}});
+        function trapTabKey(e){if(e.key==='Tab'){const t=document.getElementById('imageModal'),o=t.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'),n=o[0],l=o[o.length-1];e.shiftKey?document.activeElement===n&&(l.focus(),e.preventDefault()):document.activeElement===l&&(n.focus(),e.preventDefault());}}
+        document.addEventListener('DOMContentLoaded',()=>{document.querySelector('button[onclick="showDetails(\'txt\')"]').setAttribute('aria-expanded','false');document.querySelector('button[onclick="showDetails(\'cdrama\')"]').setAttribute('aria-expanded','false');document.querySelectorAll('.gallery-btn').forEach(e=>{e.addEventListener('keydown',t=>{if(t.key==='Enter'||t.key===' '){t.preventDefault();e.click();}});});});
+    </script>
+
+</body>
+</html>
